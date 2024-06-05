@@ -12,11 +12,17 @@ import Header from "./components/Header";
 import Summary from "./components/Summary";
 import Tab from "./components/Tab";
 import SliderComponent from "./components/SliderComponent";
+import usePadState from "./hooks/usePadState";
 
 const App = () => {
-  const [standardPad, setStandardPad] = useState(50);
-  const [superPad, setSuperPad] = useState(20);
-  const [superPlusPad, setSuperPlusPad] = useState(50);
+  const {
+    standardPad,
+    setStandardPad,
+    superPad,
+    setSuperPad,
+    superPlusPad,
+    setSuperPlusPad,
+  } = usePadState(50, 20, 50);
 
   return (
     <SafeAreaView style={styles.safeArea}>
