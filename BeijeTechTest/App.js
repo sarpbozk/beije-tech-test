@@ -11,6 +11,7 @@ import Slider from "@react-native-community/slider";
 import Header from "./components/Header";
 import Summary from "./components/Summary";
 import Tab from "./components/Tab";
+import SliderComponent from "./components/SliderComponent";
 
 const App = () => {
   const [standardPad, setStandardPad] = useState(50);
@@ -23,51 +24,21 @@ const App = () => {
         <Header />
         <Summary />
         <Tab />
-        <View style={styles.sliderContainer}>
-          <Text style={styles.sliderLabel}>Standart Ped</Text>
-          <Slider
-            style={styles.slider}
-            minimumValue={0}
-            maximumValue={60}
-            step={1}
-            value={standardPad}
-            minimumTrackTintColor="#000000"
-            maximumTrackTintColor="#d3d3d3"
-            thumbTintColor="#000000"
-            onValueChange={(value) => setStandardPad(value)}
-          />
-          <Text style={styles.sliderValue}>{standardPad}</Text>
-        </View>
-        <View style={styles.sliderContainer}>
-          <Text style={styles.sliderLabel}>Süper Ped</Text>
-          <Slider
-            style={styles.slider}
-            minimumValue={0}
-            maximumValue={60}
-            step={1}
-            value={superPad}
-            minimumTrackTintColor="#000000"
-            maximumTrackTintColor="#d3d3d3"
-            thumbTintColor="#000000"
-            onValueChange={(value) => setSuperPad(value)}
-          />
-          <Text style={styles.sliderValue}>{superPad}</Text>
-        </View>
-        <View style={styles.sliderContainer}>
-          <Text style={styles.sliderLabel}>Süper+ Ped</Text>
-          <Slider
-            style={styles.slider}
-            minimumValue={0}
-            maximumValue={60}
-            step={1}
-            value={superPlusPad}
-            minimumTrackTintColor="#000000"
-            maximumTrackTintColor="#d3d3d3"
-            thumbTintColor="#000000"
-            onValueChange={(value) => setSuperPlusPad(value)}
-          />
-          <Text style={styles.sliderValue}>{superPlusPad}</Text>
-        </View>
+        <SliderComponent
+          label="Standart Ped"
+          value={standardPad}
+          onValueChange={setStandardPad}
+        />
+        <SliderComponent
+          label="Süper Ped"
+          value={superPad}
+          onValueChange={setSuperPad}
+        />
+        <SliderComponent
+          label="Süper+ Ped"
+          value={superPlusPad}
+          onValueChange={setSuperPlusPad}
+        />
       </ScrollView>
     </SafeAreaView>
   );
