@@ -25,7 +25,6 @@ const SliderComponent = ({ label, value, onValueChange, priceMap }) => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   sliderContainer: {
     marginVertical: 20,
