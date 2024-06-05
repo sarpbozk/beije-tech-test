@@ -30,6 +30,13 @@ This project is a React Native application that allows users to customize their 
    - A centralized `priceMap` object defines the pricing for different quantities of each product.
    - The `priceMap` is imported into relevant components to ensure consistent pricing calculations.
 
+<img src="https://github.com/sarpbozk/beije-tech-test/assets/62714901/5bed4085-3d01-4ec9-9863-937b5f50a1de" alt="Simulator Screenshot" width="300" height="600">
 
-note: sepete ekle button is not functional
+
+note: 
+sepete ekle button is not functional
 also when you clone the project dont forget to cd into the project folder BeijeTechTest
+
+
+
+
