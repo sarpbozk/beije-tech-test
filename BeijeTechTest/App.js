@@ -10,6 +10,7 @@ import {
 import Slider from "@react-native-community/slider";
 import Header from "./components/Header";
 import Summary from "./components/Summary";
+import Tab from "./components/Tab";
 
 const App = () => {
   const [standardPad, setStandardPad] = useState(50);
@@ -21,11 +22,7 @@ const App = () => {
       <ScrollView style={styles.container}>
         <Header />
         <Summary />
-        <View style={styles.tabContainer}>
-          <Text style={styles.tab}>beije Ped</Text>
-          <Text style={styles.tab}>beije Günlük Ped</Text>
-          <Text style={styles.tab}>beije Tampon</Text>
-        </View>
+        <Tab />
         <View style={styles.sliderContainer}>
           <Text style={styles.sliderLabel}>Standart Ped</Text>
           <Slider
