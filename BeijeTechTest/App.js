@@ -1,20 +1,178 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  SafeAreaView,
+} from "react-native";
+import Slider from "@react-native-community/slider";
+
+const App = () => {
+  const [standardPad, setStandardPad] = useState(50);
+  const [superPad, setSuperPad] = useState(20);
+  const [superPlusPad, setSuperPlusPad] = useState(50);
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView style={styles.container}>
+        <Text style={styles.header}>Kendi Paketini Oluştur</Text>
+        <Text style={styles.subHeader}>
+          Tercih ve ihtiyaçların doğrultusunda seçeceğin ürünlerden ve
+          miktarlardan, sana özel bir paket oluşturalım.
+        </Text>
+        <View style={styles.summary}>
+          <Text style={styles.summaryHeader}>Özel Paketin</Text>
+          <Text style={styles.deliveryText}>2 ayda 1 gönderim</Text>
+          <Image
+            source={require("./assets/Screenshot.png")}
+            style={styles.image}
+          />
+          <Text style={styles.summaryText}>
+            50 Standart Ped, 20 Süper Ped ve 50 Süper+ Ped
+          </Text>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Sepete Ekle (₺833,22)</Text>
+          </View>
+        </View>
+        <View style={styles.tabContainer}>
+          <Text style={styles.tab}>beije Ped</Text>
+          <Text style={styles.tab}>beije Günlük Ped</Text>
+          <Text style={styles.tab}>beije Tampon</Text>
+        </View>
+        <View style={styles.sliderContainer}>
+          <Text style={styles.sliderLabel}>Standart Ped</Text>
+          <Slider
+            style={styles.slider}
+            minimumValue={0}
+            maximumValue={60}
+            step={1}
+            value={standardPad}
+            minimumTrackTintColor="#000000"
+            maximumTrackTintColor="#d3d3d3"
+            thumbTintColor="#000000"
+            onValueChange={(value) => setStandardPad(value)}
+          />
+          <Text style={styles.sliderValue}>{standardPad}</Text>
+        </View>
+        <View style={styles.sliderContainer}>
+          <Text style={styles.sliderLabel}>Süper Ped</Text>
+          <Slider
+            style={styles.slider}
+            minimumValue={0}
+            maximumValue={60}
+            step={1}
+            value={superPad}
+            minimumTrackTintColor="#000000"
+            maximumTrackTintColor="#d3d3d3"
+            thumbTintColor="#000000"
+            onValueChange={(value) => setSuperPad(value)}
+          />
+          <Text style={styles.sliderValue}>{superPad}</Text>
+        </View>
+        <View style={styles.sliderContainer}>
+          <Text style={styles.sliderLabel}>Süper+ Ped</Text>
+          <Slider
+            style={styles.slider}
+            minimumValue={0}
+            maximumValue={60}
+            step={1}
+            value={superPlusPad}
+            minimumTrackTintColor="#000000"
+            maximumTrackTintColor="#d3d3d3"
+            thumbTintColor="#000000"
+            onValueChange={(value) => setSuperPlusPad(value)}
+          />
+          <Text style={styles.sliderValue}>{superPlusPad}</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#f9f9f9",
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 16,
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  subHeader: {
+    fontSize: 16,
+    marginVertical: 10,
+    color: "#666",
+  },
+  tabContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginVertical: 20,
+  },
+  tab: {
+    fontSize: 16,
+    color: "#999",
+  },
+  sliderContainer: {
+    marginVertical: 20,
+  },
+  sliderLabel: {
+    fontSize: 16,
+    color: "#333",
+  },
+  slider: {
+    width: "100%",
+    height: 40,
+  },
+  sliderValue: {
+    textAlign: "right",
+    fontSize: 16,
+    color: "#333",
+  },
+  summary: {
+    marginTop: 30,
+    padding: 16,
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    alignItems: "center",
+  },
+  summaryHeader: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  deliveryText: {
+    fontSize: 16,
+    color: "#666",
+  },
+  image: {
+    width: 200,
+    height: 100,
+    marginVertical: 10,
+  },
+  summaryText: {
+    fontSize: 16,
+    color: "#333",
+    textAlign: "center",
+    marginVertical: 10,
+  },
+  button: {
+    backgroundColor: "#000",
+    padding: 15,
+    borderRadius: 8,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
+
+export default App;
