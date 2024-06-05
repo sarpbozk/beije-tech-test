@@ -3,11 +3,13 @@ import { View, StyleSheet, ScrollView, SafeAreaView } from "react-native";
 import Header from "./components/Header";
 import Summary from "./components/Summary";
 import Tab from "./components/Tab";
-import SliderComponent from "./components/SliderComponent";
+import SliderGroup from "./components/SliderGroup";
+import useSliderState from "./hooks/useSliderState";
+import priceMap from "./constants/priceMap";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState("beije Ped");
-  const [quantities, setQuantities] = useState({
+  const initialQuantities = {
     "Standart Ped": 0,
     "Süper Ped": 0,
     "Süper+ Ped": 0,
@@ -16,7 +18,14 @@ const App = () => {
     "Mini Tampon": 0,
     "Standart Tampon": 0,
     "Super Tampon": 0,
-  });
+  };
+
+  const { quantities, handleValueChange, calculateTotalPrice } = useSliderState(
+    initialQuantities,
+    priceMap
+  );
+
+  const totalPrice = useMemo(calculateTotalPrice, [quantities]);
 
   const priceMap = {
     "Standart Ped": [0, 60.84, 119.85, 189.41, 239.7, 299.76, 358.82],
@@ -133,6 +142,12 @@ const App = () => {
           tabs={["beije Ped", "beije Günlük Ped", "beije Tampon"]}
           activeTab={activeTab}
           setActiveTab={setActiveTab}
+        />
+        <SliderGroup
+          activeTab={activeTab}
+          quantities={quantities}
+          handleValueChange={handleValueChange}
+          priceMap={priceMap}
         />
         {renderSliders()}
       </ScrollView>
