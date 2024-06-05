@@ -8,21 +8,17 @@ import {
   SafeAreaView,
 } from "react-native";
 import Slider from "@react-native-community/slider";
+import Header from "./components/Header";
 
 const App = () => {
   const [standardPad, setStandardPad] = useState(50);
   const [superPad, setSuperPad] = useState(20);
   const [superPlusPad, setSuperPlusPad] = useState(50);
 
-export default function App() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.container}>
-        <Text style={styles.header}>Kendi Paketini Oluştur</Text>
-        <Text style={styles.subHeader}>
-          Tercih ve ihtiyaçların doğrultusunda seçeceğin ürünlerden ve
-          miktarlardan, sana özel bir paket oluşturalım.
-        </Text>
+        <Header />
         <View style={styles.summary}>
           <Text style={styles.summaryHeader}>Özel Paketin</Text>
           <Text style={styles.deliveryText}>2 ayda 1 gönderim</Text>
