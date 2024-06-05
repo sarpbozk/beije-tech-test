@@ -1,11 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-const Tab = () => (
+const Tab = ({ tabs, activeTab, setActiveTab }) => (
   <View style={styles.tabContainer}>
-    <Text style={styles.tab}>beije Ped</Text>
-    <Text style={styles.tab}>beije Günlük Ped</Text>
-    <Text style={styles.tab}>beije Tampon</Text>
+    {tabs.map((tab) => (
+      <TouchableOpacity key={tab} onPress={() => setActiveTab(tab)}>
+        <Text style={[styles.tab, activeTab === tab && styles.activeTab]}>
+          {tab}
+        </Text>
+      </TouchableOpacity>
+    ))}
   </View>
 );
 
@@ -18,6 +22,10 @@ const styles = StyleSheet.create({
   tab: {
     fontSize: 16,
     color: "#999",
+  },
+  activeTab: {
+    fontWeight: "bold",
+    color: "#000",
   },
 });
 
