@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Slider from "@react-native-community/slider";
 import Header from "./components/Header";
+import Summary from "./components/Summary";
 
 const App = () => {
   const [standardPad, setStandardPad] = useState(50);
@@ -19,20 +20,7 @@ const App = () => {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.container}>
         <Header />
-        <View style={styles.summary}>
-          <Text style={styles.summaryHeader}>Özel Paketin</Text>
-          <Text style={styles.deliveryText}>2 ayda 1 gönderim</Text>
-          <Image
-            source={require("./assets/Screenshot.png")}
-            style={styles.image}
-          />
-          <Text style={styles.summaryText}>
-            50 Standart Ped, 20 Süper Ped ve 50 Süper+ Ped
-          </Text>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Sepete Ekle (₺833,22)</Text>
-          </View>
-        </View>
+        <Summary />
         <View style={styles.tabContainer}>
           <Text style={styles.tab}>beije Ped</Text>
           <Text style={styles.tab}>beije Günlük Ped</Text>
